@@ -12,11 +12,13 @@ import './index.css';
 //     }
 //   }
 
-  function Square({ number  }) {
-      const [ value, setValue ] = useState('')
+//  leave the state alone so that it wpuld count all the values there use setState to update the state
+  function Square({ value, squares, onClick  }) {
+    //   const [ value, setValue ] = useState('')
     return (
         <button  className="square"
-        onClick={ () =>  setValue('x')}>
+        onClick={ onClick }
+        >
           {value}
         </button>
       );
@@ -24,8 +26,18 @@ import './index.css';
   
   function Board () {
 
+    const [squares, setSquares ] = useState(Array(9).fill(null))
+
      function renderSquare(i) {
-      return <Square  number = {i} />;
+      return <Square 
+      value={squares[i]} 
+      onClick= { () =>{
+        const nextSquares = squares.slice()
+        nextSquares[i]= 'x'
+        console.log('squares', nextSquares);
+        setSquares(nextSquares)
+      }}
+      />;
     }
     
       const status = 'Next player: X';
