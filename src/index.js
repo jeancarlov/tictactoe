@@ -25,10 +25,10 @@ import './index.css';
   }
   
   function Board () {
-
+    // useState depends on the order of the definitions meaning the useState needs to be at the top of the render fucntion for it to work
     const [squares, setSquares ] = useState(Array(9).fill(null))
     // const [ lastTurn, setLastTurn] = useState(true)
-    const [ isXNext, setXNext] = useState(true)
+    const [ isXNext, setXNext] = useState(true)  // hook useState
 
      function renderSquare(i) {
       return <Square 
