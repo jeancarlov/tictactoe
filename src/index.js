@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -12,11 +12,12 @@ import './index.css';
 //     }
 //   }
 
-  function Square({number}) {
+  function Square({ number  }) {
+      const [ value, setValue ] = useState('')
     return (
         <button  className="square"
-        onClick={ () => alert('good luck')}>
-          {number}
+        onClick={ () =>  setValue('x')}>
+          {value}
         </button>
       );
   }
