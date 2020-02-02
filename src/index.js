@@ -27,13 +27,16 @@ import './index.css';
   function Board () {
 
     const [squares, setSquares ] = useState(Array(9).fill(null))
+    // const [ lastTurn, setLastTurn] = useState(true)
+    const [ isXNext, setXNext] = useState(true)
 
      function renderSquare(i) {
       return <Square 
       value={squares[i]} 
       onClick= { () =>{
         const nextSquares = squares.slice()
-        nextSquares[i]= 'x'
+        nextSquares[i]=  isXNext ? 'x': 'o'
+        setXNext(!isXNext)
         console.log('squares', nextSquares);
         setSquares(nextSquares)
       }}
