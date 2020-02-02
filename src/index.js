@@ -12,10 +12,11 @@ import './index.css';
 //     }
 //   }
 
-  function Square() {
+  function Square({number}) {
     return (
-        <button className="square">
-          {/* TODO */}
+        <button  className="square"
+        onClick={ () => alert('good luck')}>
+          {number}
         </button>
       );
   }
@@ -23,7 +24,7 @@ import './index.css';
   function Board () {
 
      function renderSquare(i) {
-      return <Square />;
+      return <Square  number = {i} />;
     }
     
       const status = 'Next player: X';
